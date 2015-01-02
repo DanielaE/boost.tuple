@@ -100,6 +100,13 @@ template<class CharType>
 class tuple_manipulator {
   const detail::format_info::manipulator_type mt;
   CharType f_c;
+
+#if defined(BOOST_NO_CXX11_DELETED_FUNCTIONS)
+tuple_manipulator& operator=(const tuple_manipulator&);
+#else
+tuple_manipulator& operator=(const tuple_manipulator&) = delete;
+#endif
+	
 public:
   explicit tuple_manipulator(detail::format_info::manipulator_type m, 
                              const char c = 0)
