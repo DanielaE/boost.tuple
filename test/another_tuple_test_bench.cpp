@@ -119,7 +119,7 @@ void foo4()
 
   class AA {};
   class BB : public AA {};
-  struct CC { CC() {} CC(const BB& b) {} };
+  struct CC { CC() {} CC(const BB&) {} };
   struct DD { operator CC() const { return CC(); }; };
 
   void foo5() {
