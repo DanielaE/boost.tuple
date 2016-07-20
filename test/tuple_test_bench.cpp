@@ -413,8 +413,8 @@ void cons_test()
   cons<int&, cons<const int, cons<volatile float, null_type> > > c(i, b);
   BOOST_CHECK(make_tuple(3,2,1)==c);
 
-  cons<char, cons<int, cons<float, null_type> > > x;
-  dummy(x);
+  cons<char, cons<int, cons<float, null_type> > > x_;
+  dummy(x_);
 }
 
 // ----------------------------------------------------------------------------
@@ -432,16 +432,16 @@ void const_tuple_test()
 // ----------------------------------------------------------------------------
 void tuple_length_test()
 {
-  typedef tuple<int, float, double> t1;
+  typedef tuple<int, float, double> t1_;
   using tuples::cons;
   typedef cons<int, cons< float, cons <double, tuples::null_type> > > t1_cons;
-  typedef tuple<> t2;
-  typedef tuples::null_type t3;  
+  typedef tuple<> t2_;
+  typedef tuples::null_type t3_;
 
-  BOOST_STATIC_ASSERT(tuples::length<t1>::value == 3);
+  BOOST_STATIC_ASSERT(tuples::length<t1_>::value == 3);
   BOOST_STATIC_ASSERT(tuples::length<t1_cons>::value == 3);
-  BOOST_STATIC_ASSERT(tuples::length<t2>::value == 0);
-  BOOST_STATIC_ASSERT(tuples::length<t3>::value == 0);
+  BOOST_STATIC_ASSERT(tuples::length<t2_>::value == 0);
+  BOOST_STATIC_ASSERT(tuples::length<t3_>::value == 0);
 
 }
 
